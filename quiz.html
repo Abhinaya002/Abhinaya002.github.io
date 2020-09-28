@@ -1,0 +1,61 @@
+<!DOCTYPE <html>
+
+<head>
+    <title>QUIZ TEST</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const timeLeftDisplay = document.querySelector('#time-left')
+            const startBtn = document.querySelector('#start-button')
+            timeLeft = 20
+
+            function countdown() {
+                setInterval(function() {
+                    if (timeLeft <= 0) {
+                        clearInterval(timeLeft = 0)
+                    }
+                    timeLeftDisplay.innerHTML = timeLeft
+                    timeLeft -= 1
+                }, 1000)
+            }
+            startBtn.addEventListener('click', countdown)
+        })
+    </script>
+</head>
+
+<body>
+    <h3>Seconds left:<span id="time-left">20</span></h3>
+    <button id="start-button">Start</button>
+    <form name="Test">
+        Q1.What is the capital of Assam?<br>
+        <input type="checkbox" id="q11" value="a">Dispur</br>
+        <input type="checkbox" id="q12" value="b">shimla</br>
+        <input type="checkbox" id="q13" value="c">panaji</br><br> Q2.What are the languages spoken in Hyderabad?<br>
+        <input type="checkbox" id="q21" value="a">Telugu</br>
+        <input type="checkbox" id="q22" value="b">Hindi</br>
+        <input type="checkbox" id="q23" value="c">English</br><br> Q3.What are the currencies of UK?<br>
+        <input type="checkbox" id="q31" value="a">Pound</br>
+        <input type="checkbox" id="q32" value="b">Sterling</br>
+        <input type="checkbox" id="q33" value="c">yen</br><br> Q4.What are the currency symobls of USA?<br>
+        <input type="checkbox" id="q41" value="a">Dollar</br>
+        <input type="checkbox" id="q42" value="b">Rupee</br>
+        <input type="checkbox" id="q43" value="c">Cent</br><br>
+        <input type="button" value="submit" onclick="checkboxes()">
+    </form>
+    <script>
+        var count = 0;
+
+        function checkboxes() {
+            if (document.getElementById("q11").checked)
+                count = count + 1;
+            if (document.getElementById("q21").checked && document.getElementById("q22").checked && document.getElementById("q23").checked)
+                count = count + 1;
+            if (document.getElementById("q31").checked && document.getElementById("q32").checked)
+                count = count + 1;
+            if (document.getElementById("q41").checked && document.getElementById("q43").checked)
+                count = count + 1;
+            window.alert("marks obtained:" + count);
+        }
+    </script>
+</body>
+
+</html>
